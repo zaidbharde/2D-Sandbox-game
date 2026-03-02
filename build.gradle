@@ -1,0 +1,20 @@
+ext {
+    gdxVersion = '1.14.0'
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+        maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
+    }
+}
+
+subprojects {
+    group = 'com.sandboxgame'
+    version = '1.0.0'
+
+    tasks.withType(JavaCompile).configureEach {
+        options.encoding = 'UTF-8'
+        options.release = 17
+    }
+}

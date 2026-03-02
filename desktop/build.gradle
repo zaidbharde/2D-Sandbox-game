@@ -1,0 +1,23 @@
+plugins {
+    id 'application'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+dependencies {
+    implementation project(':core')
+    implementation "com.badlogicgames.gdx:gdx-backend-lwjgl3:${rootProject.gdxVersion}"
+    implementation "com.badlogicgames.gdx:gdx-platform:${rootProject.gdxVersion}:natives-desktop"
+}
+
+application {
+    mainClass = 'com.sandboxgame.desktop.DesktopLauncher'
+}
+
+tasks.named('run', JavaExec).configure {
+    workingDir = rootProject.file('.')
+}
